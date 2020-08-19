@@ -1,0 +1,129 @@
+@model QB2.Models.OurCustomer
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>OurCustomer</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        @Html.HiddenFor(model => model.UserId)
+
+        <dt>
+            @Html.DisplayNameFor(model => model.QbCustomerId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.QbCustomerId)
+        <dt>
+            @Html.DisplayNameFor(model => model.QuickbooksAccessToken)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.QuickbooksAccessToken)
+        <dt>
+            @Html.DisplayNameFor(model => model.QuickbooksSecretToken)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.QuickbooksSecretToken)
+        <dt>
+            @Html.DisplayNameFor(model => model.QbSalesAccount)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.QbSalesAccount)
+        <dt>
+            @Html.DisplayNameFor(model => model.QbSalesTax)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.QbSalesTax)
+        <dt>
+            @Html.DisplayNameFor(model => model.QbSalesDiscounts)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.QbSalesDiscounts)
+        <dt>
+            @Html.DisplayNameFor(model => model.QbFreightIncome)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.QbFreightIncome)
+        <dt>
+            @Html.DisplayNameFor(model => model.QbCash)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.QbCash)
+        <dt>
+            @Html.DisplayNameFor(model => model.QbCostOfGoods)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.QbCostOfGoods)
+        <dt>
+            @Html.DisplayNameFor(model => model.QbUndepositiedFunds)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.QbUndepositiedFunds)
+        <dt>
+            @Html.DisplayNameFor(model => model.QbSalesId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.QbSalesId)
+        <dt>
+            @Html.DisplayNameFor(model => model.QbSalesTaxId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.QbSalesTaxId)
+        <dt>
+            @Html.DisplayNameFor(model => model.QbDiscountsId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.QbDiscountsId)
+        <dt>
+            @Html.DisplayNameFor(model => model.QbFreightId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.QbFreightId)
+        <dt>
+            @Html.DisplayNameFor(model => model.QbCashId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.QbCashId)
+        <dt>
+            @Html.DisplayNameFor(model => model.QbCostofGoodsId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.QbCostofGoodsId)
+        <dt>
+            @Html.DisplayNameFor(model => model.QbUndepositedFundsId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.QbUndepositedFundsId)
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>
+ 

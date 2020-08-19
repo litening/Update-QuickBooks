@@ -1,0 +1,137 @@
+@model QB2.Models.Customer
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Customer</h4>
+	<hr />
+    <dl class="dl-horizontal">
+        @Html.HiddenFor(model => model.CustomerId)
+
+        <dt>
+            @Html.DisplayNameFor(model => model.FirstName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FirstName)
+        <dt>
+            @Html.DisplayNameFor(model => model.LastName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LastName)
+        <dt>
+            @Html.DisplayNameFor(model => model.CompanyName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CompanyName)
+        <dt>
+            @Html.DisplayNameFor(model => model.Address1)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Address1)
+        <dt>
+            @Html.DisplayNameFor(model => model.Address2)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Address2)
+        <dt>
+            @Html.DisplayNameFor(model => model.City)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.City)
+        <dt>
+            @Html.DisplayNameFor(model => model.State)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.State)
+        <dt>
+            @Html.DisplayNameFor(model => model.Zip)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Zip)
+        <dt>
+            @Html.DisplayNameFor(model => model.Country)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Country)
+        <dt>
+            @Html.DisplayNameFor(model => model.ShipToAddress1)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ShipToAddress1)
+        <dt>
+            @Html.DisplayNameFor(model => model.ShipToAddress2)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ShipToAddress2)
+        <dt>
+            @Html.DisplayNameFor(model => model.ShipToCity)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ShipToCity)
+        <dt>
+            @Html.DisplayNameFor(model => model.ShipToState)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ShipToState)
+        <dt>
+            @Html.DisplayNameFor(model => model.ShipToZip)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ShipToZip)
+        <dt>
+            @Html.DisplayNameFor(model => model.ShipToCountry)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ShipToCountry)
+        <dt>
+            @Html.DisplayNameFor(model => model.ShipToName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ShipToName)
+        <dt>
+            @Html.DisplayNameFor(model => model.Phone)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Phone)
+        <dt>
+            @Html.DisplayNameFor(model => model.eMailAddr)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.eMailAddr)
+        <dt>
+            @Html.DisplayNameFor(model => model.QbCustomerId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.QbCustomerId)
+    </dl>
+</div>
+<p>
+            @Html.ActionLink("Edit", "Edit", new {
+ 						CustomerId = Model.CustomerId 
+ 						}) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
+ 

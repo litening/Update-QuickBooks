@@ -1,0 +1,197 @@
+@using PagedList;
+@using PagedList.Mvc;
+@model PagedList.IPagedList<QB2.Models.Customer>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Customer</h2>
+
+@using (Html.BeginForm("Index", "Customer", FormMethod.Get))
+{
+    <table class="table">
+        <tr>
+            <td align="left">&nbsp;</td>
+            <td>&nbsp;</td>
+            <td align="center">
+                @Html.DropDownList("SearchField", (IEnumerable<SelectListItem>)ViewData["SearchFields"], new {style = "width:150px;height:33px"})
+                @Html.DropDownList("SearchCondition", (IEnumerable<SelectListItem>)ViewData["SearchConditions"], new { style = "width:150px;height:33px" })
+                @Html.TextBox("SearchText", ViewData["SearchText"] as String, new { style = "width:100px;height:33px" })
+                <input type="submit" value="Search" name="command" class="btn btn-default" />
+                <input type="submit" value="Show All" name="command" class="btn btn-default" /> 
+            </td>
+            <td>&nbsp;</td>
+            <td align="right">&nbsp;</td>
+        </tr>
+        <tr>
+            <td align="left">
+                @Html.DropDownList("Export", (IEnumerable<SelectListItem>)ViewData["Exports"], new { style = "width:65px;height:33px" })
+                <input type="submit" value="Export" name="command" class="btn btn-default" />
+            </td>
+            <td>&nbsp;</td>
+            <td align="center">                
+                <input type="submit" value="Add New Record" name="command" class="btn btn-default" />
+            </td>
+            <td>&nbsp;</td>
+            <td align="right">
+                @Html.DropDownList("PageSize", (IEnumerable<SelectListItem>)ViewData["PageSizes"], new { style = "width:50px;height:33px" })
+                <input type="submit" value="Page Size" name="command" class="btn btn-default" />
+            </td>
+        </tr>
+    </table>
+}
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.ActionLink("Customer Id", "Index", new { sortOrder = ViewData["CustomerIdSortParm"], SearchText = ViewData["SearchText"] })
+        </th>
+        <th>
+            @Html.ActionLink("First Name", "Index", new { sortOrder = ViewData["FirstNameSortParm"], SearchText = ViewData["SearchText"] })
+        </th>
+        <th>
+            @Html.ActionLink("Last Name", "Index", new { sortOrder = ViewData["LastNameSortParm"], SearchText = ViewData["SearchText"] })
+        </th>
+        <th>
+            @Html.ActionLink("Company Name", "Index", new { sortOrder = ViewData["CompanyNameSortParm"], SearchText = ViewData["SearchText"] })
+        </th>
+        <th>
+            @Html.ActionLink("Address1", "Index", new { sortOrder = ViewData["Address1SortParm"], SearchText = ViewData["SearchText"] })
+        </th>
+        <th>
+            @Html.ActionLink("Address2", "Index", new { sortOrder = ViewData["Address2SortParm"], SearchText = ViewData["SearchText"] })
+        </th>
+        <th>
+            @Html.ActionLink("City", "Index", new { sortOrder = ViewData["CitySortParm"], SearchText = ViewData["SearchText"] })
+        </th>
+        <th>
+            @Html.ActionLink("State", "Index", new { sortOrder = ViewData["StateSortParm"], SearchText = ViewData["SearchText"] })
+        </th>
+        <th>
+            @Html.ActionLink("Zip", "Index", new { sortOrder = ViewData["ZipSortParm"], SearchText = ViewData["SearchText"] })
+        </th>
+        <th>
+            @Html.ActionLink("Country", "Index", new { sortOrder = ViewData["CountrySortParm"], SearchText = ViewData["SearchText"] })
+        </th>
+        <th>
+            @Html.ActionLink("Ship To Address1", "Index", new { sortOrder = ViewData["ShipToAddress1SortParm"], SearchText = ViewData["SearchText"] })
+        </th>
+        <th>
+            @Html.ActionLink("Ship To Address2", "Index", new { sortOrder = ViewData["ShipToAddress2SortParm"], SearchText = ViewData["SearchText"] })
+        </th>
+        <th>
+            @Html.ActionLink("Ship To City", "Index", new { sortOrder = ViewData["ShipToCitySortParm"], SearchText = ViewData["SearchText"] })
+        </th>
+        <th>
+            @Html.ActionLink("Ship To State", "Index", new { sortOrder = ViewData["ShipToStateSortParm"], SearchText = ViewData["SearchText"] })
+        </th>
+        <th>
+            @Html.ActionLink("Ship To Zip", "Index", new { sortOrder = ViewData["ShipToZipSortParm"], SearchText = ViewData["SearchText"] })
+        </th>
+        <th>
+            @Html.ActionLink("Ship To Country", "Index", new { sortOrder = ViewData["ShipToCountrySortParm"], SearchText = ViewData["SearchText"] })
+        </th>
+        <th>
+            @Html.ActionLink("Ship To Name", "Index", new { sortOrder = ViewData["ShipToNameSortParm"], SearchText = ViewData["SearchText"] })
+        </th>
+        <th>
+            @Html.ActionLink("Phone", "Index", new { sortOrder = ViewData["PhoneSortParm"], SearchText = ViewData["SearchText"] })
+        </th>
+        <th>
+            @Html.ActionLink("E Mail Addr", "Index", new { sortOrder = ViewData["eMailAddrSortParm"], SearchText = ViewData["SearchText"] })
+        </th>
+        <th>
+            @Html.ActionLink("Qb Customer Id", "Index", new { sortOrder = ViewData["QbCustomerIdSortParm"], SearchText = ViewData["SearchText"] })
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.CustomerId)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.FirstName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.LastName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CompanyName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Address1)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Address2)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.City)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.State)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Zip)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Country)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ShipToAddress1)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ShipToAddress2)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ShipToCity)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ShipToState)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ShipToZip)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ShipToCountry)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ShipToName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Phone)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.eMailAddr)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.QbCustomerId)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new {
+ 						CustomerId = item.CustomerId 
+ 						}) |
+            @Html.ActionLink("Details", "Details", new {
+ 						CustomerId = item.CustomerId 
+ 						}) |
+            @Html.ActionLink("Delete", "Delete", new {
+ 						CustomerId = item.CustomerId 
+ 						})
+        </td>
+    </tr>
+}
+
+</table>
+
+<table class="table">
+    <tr>
+        <td align="center">
+            @Html.PagedListPager(Model, page => Url.Action("Index", new { page, sortOrder = ViewData["CurrentSort"], SearchText = ViewData["SearchText"] }))
+        </td>
+    </tr>
+</table>
+
+ 

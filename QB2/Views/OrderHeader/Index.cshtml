@@ -1,0 +1,155 @@
+@using PagedList;
+@using PagedList.Mvc;
+@model PagedList.IPagedList<QB2.Models.OrderHeader>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>OrderHeader</h2>
+
+@using (Html.BeginForm("Index", "OrderHeader", FormMethod.Get))
+{
+    <table class="table">
+        <tr>
+            <td align="left">&nbsp;</td>
+            <td>&nbsp;</td>
+            <td align="center">
+                @Html.DropDownList("SearchField", (IEnumerable<SelectListItem>)ViewData["SearchFields"], new {style = "width:150px;height:33px"})
+                @Html.DropDownList("SearchCondition", (IEnumerable<SelectListItem>)ViewData["SearchConditions"], new { style = "width:150px;height:33px" })
+                @Html.TextBox("SearchText", ViewData["SearchText"] as String, new { style = "width:100px;height:33px" })
+                <input type="submit" value="Search" name="command" class="btn btn-default" />
+                <input type="submit" value="Show All" name="command" class="btn btn-default" /> 
+            </td>
+            <td>&nbsp;</td>
+            <td align="right">&nbsp;</td>
+        </tr>
+        <tr>
+            <td align="left">
+                @Html.DropDownList("Export", (IEnumerable<SelectListItem>)ViewData["Exports"], new { style = "width:65px;height:33px" })
+                <input type="submit" value="Export" name="command" class="btn btn-default" />
+            </td>
+            <td>&nbsp;</td>
+            <td align="center">                
+                <input type="submit" value="Add New Record" name="command" class="btn btn-default" />
+            </td>
+            <td>&nbsp;</td>
+            <td align="right">
+                @Html.DropDownList("PageSize", (IEnumerable<SelectListItem>)ViewData["PageSizes"], new { style = "width:50px;height:33px" })
+                <input type="submit" value="Page Size" name="command" class="btn btn-default" />
+            </td>
+        </tr>
+    </table>
+}
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.ActionLink("Order Id", "Index", new { sortOrder = ViewData["OrderIdSortParm"], SearchText = ViewData["SearchText"] })
+        </th>
+        <th>
+            @Html.ActionLink("User Id", "Index", new { sortOrder = ViewData["UserIdSortParm"], SearchText = ViewData["SearchText"] })
+        </th>
+        <th>
+            @Html.ActionLink("Order Date", "Index", new { sortOrder = ViewData["OrderDateSortParm"], SearchText = ViewData["SearchText"] })
+        </th>
+        <th>
+            @Html.ActionLink("Customer Id", "Index", new { sortOrder = ViewData["CustomerIdSortParm"], SearchText = ViewData["SearchText"] })
+        </th>
+        <th>
+            @Html.ActionLink("Order Total", "Index", new { sortOrder = ViewData["OrderTotalSortParm"], SearchText = ViewData["SearchText"] })
+        </th>
+        <th>
+            @Html.ActionLink("Sales Tax", "Index", new { sortOrder = ViewData["SalesTaxSortParm"], SearchText = ViewData["SearchText"] })
+        </th>
+        <th>
+            @Html.ActionLink("Sales Tax Code", "Index", new { sortOrder = ViewData["SalesTaxCodeSortParm"], SearchText = ViewData["SearchText"] })
+        </th>
+        <th>
+            @Html.ActionLink("Shipping Charge", "Index", new { sortOrder = ViewData["ShippingChargeSortParm"], SearchText = ViewData["SearchText"] })
+        </th>
+        <th>
+            @Html.ActionLink("Qb Updated", "Index", new { sortOrder = ViewData["QbUpdatedSortParm"], SearchText = ViewData["SearchText"] })
+        </th>
+        <th>
+            @Html.ActionLink("Sales Tax Amt", "Index", new { sortOrder = ViewData["SalesTaxAmtSortParm"], SearchText = ViewData["SearchText"] })
+        </th>
+        <th>
+            @Html.ActionLink("Discount Amount", "Index", new { sortOrder = ViewData["DiscountAmountSortParm"], SearchText = ViewData["SearchText"] })
+        </th>
+        <th>
+            @Html.ActionLink("Status", "Index", new { sortOrder = ViewData["StatusSortParm"], SearchText = ViewData["SearchText"] })
+        </th>
+        <th>
+            @Html.ActionLink("B Test Order", "Index", new { sortOrder = ViewData["bTestOrderSortParm"], SearchText = ViewData["SearchText"] })
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.OrderId)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.OurCustomer.UserId)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.OrderDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Customer.CustomerId)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.OrderTotal)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SalesTax)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SalesTaxCode)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ShippingCharge)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.QbUpdated)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SalesTaxAmt)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DiscountAmount)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Status)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.bTestOrder)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new {
+ 						OrderId = item.OrderId 
+ 						}) |
+            @Html.ActionLink("Details", "Details", new {
+ 						OrderId = item.OrderId 
+ 						}) |
+            @Html.ActionLink("Delete", "Delete", new {
+ 						OrderId = item.OrderId 
+ 						})
+        </td>
+    </tr>
+}
+
+</table>
+
+<table class="table">
+    <tr>
+        <td align="center">
+            @Html.PagedListPager(Model, page => Url.Action("Index", new { page, sortOrder = ViewData["CurrentSort"], SearchText = ViewData["SearchText"] }))
+        </td>
+    </tr>
+</table>
+
+ 

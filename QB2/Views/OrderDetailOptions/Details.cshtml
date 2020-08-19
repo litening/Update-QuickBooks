@@ -1,0 +1,43 @@
+@model QB2.Models.OrderDetailOptions
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>OrderDetailOptions</h4>
+	<hr />
+    <dl class="dl-horizontal">
+        @Html.HiddenFor(model => model.OrderOptionId)
+
+        <dt>
+            @Html.DisplayNameFor(model => model.OrderDetailId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.OrderDetailId)
+        <dt>
+            @Html.DisplayNameFor(model => model.ItemOptionId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ItemOption.ItemOptionId)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Price)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Price)
+    </dl>
+</div>
+<p>
+            @Html.ActionLink("Edit", "Edit", new {
+ 						OrderOptionId = Model.OrderOptionId 
+ 						}) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
+ 

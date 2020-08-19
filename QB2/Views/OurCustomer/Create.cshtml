@@ -1,0 +1,172 @@
+@model QB2.Models.OurCustomer
+
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Create</h2>
+
+
+@using (Html.BeginForm()) 
+{
+    @Html.AntiForgeryToken()
+    
+    <div class="form-horizontal">
+        <h4>OurCustomer</h4>
+        <hr />
+        @Html.ValidationSummary(true)
+        @Html.HiddenFor(model => model.UserId)
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.QbCustomerId, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.QbCustomerId)
+                @Html.ValidationMessageFor(model => model.QbCustomerId)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.QuickbooksAccessToken, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.QuickbooksAccessToken)
+                @Html.ValidationMessageFor(model => model.QuickbooksAccessToken)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.QuickbooksSecretToken, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.QuickbooksSecretToken)
+                @Html.ValidationMessageFor(model => model.QuickbooksSecretToken)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.QbSalesAccount, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.QbSalesAccount)
+                @Html.ValidationMessageFor(model => model.QbSalesAccount)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.QbSalesTax, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.QbSalesTax)
+                @Html.ValidationMessageFor(model => model.QbSalesTax)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.QbSalesDiscounts, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.QbSalesDiscounts)
+                @Html.ValidationMessageFor(model => model.QbSalesDiscounts)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.QbFreightIncome, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.QbFreightIncome)
+                @Html.ValidationMessageFor(model => model.QbFreightIncome)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.QbCash, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.QbCash)
+                @Html.ValidationMessageFor(model => model.QbCash)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.QbCostOfGoods, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.QbCostOfGoods)
+                @Html.ValidationMessageFor(model => model.QbCostOfGoods)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.QbUndepositiedFunds, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.QbUndepositiedFunds)
+                @Html.ValidationMessageFor(model => model.QbUndepositiedFunds)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.QbSalesId, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.QbSalesId)
+                @Html.ValidationMessageFor(model => model.QbSalesId)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.QbSalesTaxId, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.QbSalesTaxId)
+                @Html.ValidationMessageFor(model => model.QbSalesTaxId)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.QbDiscountsId, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.QbDiscountsId)
+                @Html.ValidationMessageFor(model => model.QbDiscountsId)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.QbFreightId, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.QbFreightId)
+                @Html.ValidationMessageFor(model => model.QbFreightId)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.QbCashId, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.QbCashId)
+                @Html.ValidationMessageFor(model => model.QbCashId)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.QbCostofGoodsId, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.QbCostofGoodsId)
+                @Html.ValidationMessageFor(model => model.QbCostofGoodsId)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.QbUndepositedFundsId, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.QbUndepositedFundsId)
+                @Html.ValidationMessageFor(model => model.QbUndepositedFundsId)
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Create" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
+ 
